@@ -1,0 +1,61 @@
+redux - react - browser
+
+user enters domain
+react starts requests list of data 
+redux goes to server, fetch data, stores inside redux
+list of data from redux passed to react component then rendered to screen
+
+redux: easy management library for states object
+redux: big object to store data inside and data will advise react how to behave
+
+
+. create new project - create react app 
+
+. install redux and react-redux (connects react to redux)
+  npm install redux react-redux
+
+  .setup:
+
+import provider
+Provider : to connect redux
+
+ wrap app with provider :
+
+ ReactDOM.render(
+    <Provider>
+        <App />
+    </Provider>
+, document.getElementById('root'));
+
+. Provider requires createStore  ==> import it 
+
+. applyMiddleware : acts between redux and react component
+
+
+what is middleware?
+-------------------
+app > server > redux > middleware > react component > app
+
+an app requests data from server,
+data stored in redux,
+redux passes data to react component,
+react component renders on screen,
+
+middleware: grab info from redux, do something
+with it before it goes to component
+
+
+implement store and middleware
+-------------------------------
+tell Provider we are using redux
+2 ways:
+
+1.Provider store={createStore} // will work but we need to use middlewares too 
+
+// create store with middleware
+2. const createStoreWithMiddleware = 
+applyMiddleWare()(createStore)
+
+then <Provider store = {createStoreWithMiddleware()}>
+
+setup will still not work cause store expects reducer.
