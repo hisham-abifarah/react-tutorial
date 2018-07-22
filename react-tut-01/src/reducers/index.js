@@ -1,4 +1,4 @@
-// index.js combines all reducers then pass it to createStoreWithMiddleware : 
+// index.js combines all reducers then pass them to createStoreWithMiddleware : 
 
 import { combineReducers } from 'redux';
 import movies from './movies_reducer';

@@ -1,0 +1,25 @@
+Add action creators
+-------------------------------------
+action creator in charge of connecting with the reducer
+src > actions folder > index.js
+
+each action creator has type and payload and returns them
+
+//bind (connect) redux with actions and reducers..
+import { connect } from 'react-redux';
+
+
+export default connect (mapStateToProps,actions)(App);
+
+//1st param : mapStateToProps
+//  when we dispatch an action 
+ // always listening to actions, when action happens and we have a new state,  
+ // mapStateToProps runs and passes the new state, grab new state  and inject new state inside App class
+ // and render list of data from mapStateToProps 
+
+ //2nd param: actions
+
+
+
+
+
