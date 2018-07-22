@@ -1,0 +1,43 @@
+reducers and object creators workflow
+-------------------------------------
+action creator will be called first 
+returns object with a type and a payload
+object searches all reducers for reducer we created for this action
+then it will update the redux state, once state is updated react will re-render and display information we need on the screen
+
+more workflow
+-------------
+
+client > 
+action Creator: >
+ return {
+   type:"MOVIES",
+   payload:{
+   		movies: {movies list}
+   }
+}
+
+Returns an object with an Action type and a Payload >
+sent to all reducers >
+match the type name with the reducer assigned for this type >
+Reducer : >
+	payload {
+		movies : {list of movies}
+	}
+
+client updated with list of movies from reducer
+
+explanation
+-----------
+app should render a list of movies
+first ation creator goes to server brings data we need and once is done, returns an object contains a type and a payload
+type is an id (keyword) , payload contains information we got from server (list of movies) 
+
+action creator returns object, redux send object  this to all reducers
+reducers receive object , match the type and searches all reducers to find reducer with type Movies  assigned for this job (movie reducer)
+
+once reducer is found, reducer passes and updates redux states, redux state tells app we have list of movies so render list on screen
+
+Create reducers:
+-----------------
+src > reducers folder > index.js + all reducers.js

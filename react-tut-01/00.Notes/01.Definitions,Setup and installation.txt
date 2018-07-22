@@ -58,4 +58,12 @@ applyMiddleWare()(createStore)
 
 then <Provider store = {createStoreWithMiddleware()}>
 
+/***
+ReactDOM.render(
+    <Provider store = {createStoreWithMiddleware()}>
+        <App />
+    </Provider>
+, document.getElementById('root'));
+**/
+
 setup will still not work cause store expects reducer.
