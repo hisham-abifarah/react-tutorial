@@ -11,3 +11,13 @@ export function moviesList(){
         ]
     }
 }
+
+export function directorsList(){
+    return {
+        type: 'DIR_LIST',
+        payload:[
+            {id:"1" , name: "Dir 1"},
+            {id:"2" , name: "Dir 2"}
+        ]
+    }
+}

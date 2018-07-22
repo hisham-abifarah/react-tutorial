@@ -1,3 +1,31 @@
 dispatching actions
 -------------------
 
+with : mapDispatchToProps in connect 
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getMovies:()=>{
+            dispatch(moviesList());
+        },
+        getDirectors:()=>{
+            dispatch(directorsList());
+        }
+    }
+}
+
+
+that's how we dispatch actions with mapDispatchToProps in connect
+but when we have a lot of actions we shouldn't return them all like that 
+
+solution is to use bindActionCreators ,  import them then
+//1st param is the list of all actions , bindActionCreators will handle function logic for us
+
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({
+        moviesList,
+        directorsList
+    }, dispatch);
+}

@@ -1,18 +1,17 @@
-import React , { Component } from 'react';
-
-//bind (connect) redux with actions and reducers..
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { moviesList , directorsList }  from './actions';
+import { bindActionCreators } from 'redux';
 
-import * as actions from './actions';
+class App extends Component {
 
-class App extends Component{
-
-    componentWillMount(){
+    componentWillMount() {
         this.props.moviesList();
+        this.props.directorsList();
     }
 
     renderMovies = (movies) => (
-         // if movies is not empty return list else return null
+        // if movies is not empty return list else return null
         movies ?
             movies.map(item => (
                 <div>
@@ -21,10 +20,10 @@ class App extends Component{
             )) : null
     )
 
-    render(){
-        // console.log(this.props);
-        return(
-            <div> 
+    render() {
+        console.log(this.props);
+        return (
+            <div>
                 {this.renderMovies(this.props.data.movies)}
             </div>
         )
@@ -33,8 +32,16 @@ class App extends Component{
 
 const mapStateToProps = (state) => {
     return {
-        data:state.movies
+        data: state.movies
     }
 }
 
-export default connect (mapStateToProps,actions)(App);
+// returns action
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({
+        moviesList,
+        directorsList
+    }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
