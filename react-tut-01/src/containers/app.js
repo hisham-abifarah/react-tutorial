@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { moviesList , directorsList }  from './actions';
+import { moviesList , directorsList }  from '../actions';
 import { bindActionCreators } from 'redux';
+import MoviesList from '../components/MoviesList';
 
 class App extends Component {
 
@@ -10,21 +11,13 @@ class App extends Component {
         this.props.directorsList();
     }
 
-    renderMovies = (movies) => (
-        // if movies is not empty return list else return null
-        movies ?
-            movies.map(item => (
-                <div>
-                    {item.name}
-                </div>
-            )) : null
-    )
-
     render() {
-        console.log(this.props);
         return (
             <div>
-                {this.renderMovies(this.props.data.movies)}
+                 {/* renders data, don't do that here
+                  this.renderMovies(this.props.data.movies)} */}
+                {/* pass props to component which renders data */}
+                <MoviesList {...this.props}/> 
             </div>
         )
     }
