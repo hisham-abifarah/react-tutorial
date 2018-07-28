@@ -4,3 +4,5 @@ each component related to redux store is a container
 in app.js in root we shouldn't render data 
 we just pass the props to component  (Container send props to component) which is called PRESENTATIONAL COMPONENT
 cut app.js to containers and create folder components which will have MoviesList.js
+
+app.js in container sends props to MoviesList.js component which renders props
